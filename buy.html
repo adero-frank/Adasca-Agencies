@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <div class="flex items-center gap-6">
+      <div class="flex items-center gap-4">
         <nav class="hidden md:flex items-center gap-6">
           <a href="index.html" class="text-sm font-medium text-neutral-300 hover:text-white tracking-tight font-geist">Home</a>
           <a href="properties.html" class="text-sm font-medium text-neutral-300 hover:text-white tracking-tight font-geist">Properties</a>
@@ -51,13 +51,92 @@
           <a href="about.html" class="text-sm font-medium text-neutral-300 hover:text-white tracking-tight font-geist">About Us</a>
           <a href="contact.html" class="text-sm font-medium text-neutral-300 hover:text-white tracking-tight font-geist">Contact</a>
         </nav>
-        <a href="list-property.html" class="group inline-flex items-center gap-2 text-sm font-medium text-neutral-900 tracking-tight bg-white hover:bg-indigo-100 border border-white/10 rounded-full px-4 py-2">
+        <a href="list-property.html" class="hidden md:inline-flex group items-center gap-2 text-sm font-medium text-neutral-900 tracking-tight bg-white hover:bg-indigo-100 border border-white/10 rounded-full px-4 py-2">
           <span class="font-geist">List a Property</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4 stroke-[1.5]"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
         </a>
+        <button id="mobileMenuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-white hover:bg-white/10 transition-colors" aria-label="Toggle mobile menu">
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 hidden">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 md:hidden hidden">
+    <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" id="mobileMenuBackdrop"></div>
+    <div class="absolute top-0 right-0 bottom-0 w-[280px] bg-black/95 border-l border-white/10 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out" id="mobileMenuPanel">
+      <div class="flex flex-col h-full">
+        <div class="flex items-center justify-between p-4 border-b border-white/10">
+          <div class="flex items-center gap-2">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="8" fill="url(#paint0_linear_mobile)" />
+              <path d="M16 8L22 20H10L16 8Z" fill="white" opacity="0.9"/>
+              <path d="M10 24H22V26H10V24Z" fill="white" opacity="0.9"/>
+              <defs>
+                <linearGradient id="paint0_linear_mobile" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3B82F6"/>
+                  <stop offset="1" stop-color="#1D4ED8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <span class="text-sm font-bold text-white font-geist">Menu</span>
+          </div>
+        </div>
+        <nav class="flex-1 overflow-y-auto p-4">
+          <div class="space-y-1">
+            <a href="index.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-white/5 font-medium text-sm font-geist transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Home
+            </a>
+            <a href="properties.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-white/5 font-medium text-sm font-geist transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              Properties
+            </a>
+            <a href="buy.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-white bg-white/10 font-medium text-sm font-geist transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              Buy
+            </a>
+            <a href="rent.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-white/5 font-medium text-sm font-geist transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+              Rent
+            </a>
+            <a href="sell.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-white/5 font-medium text-sm font-geist transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              Sell
+            </a>
+            <a href="about.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-white/5 font-medium text-sm font-geist transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              About Us
+            </a>
+            <a href="contact.html" class="flex items-center gap-3 px-4 py-3 rounded-lg text-neutral-300 hover:text-white hover:bg-white/5 font-medium text-sm font-geist transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              Contact
+            </a>
+          </div>
+          <div class="mt-6 pt-6 border-t border-white/10">
+            <a href="list-property.html" class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-sm font-medium text-neutral-900 bg-white hover:bg-white/90 transition-colors font-geist">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+              List a Property
+            </a>
+          </div>
+        </nav>
+        <div class="p-4 border-t border-white/10">
+          <div class="text-xs text-neutral-500 font-geist text-center">
+            Adasca Agencies © 2024
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Hero Section with Search -->
   <section class="relative min-h-[50vh] flex items-center">
@@ -613,5 +692,51 @@
       animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
     }
   </style>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuPanel = document.getElementById('mobileMenuPanel');
+    const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+    const menuIcon = document.getElementById('menuIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    
+    function toggleMobileMenu() {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      
+      if (isOpen) {
+        mobileMenuPanel.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+          mobileMenu.classList.add('hidden');
+          document.body.style.overflow = '';
+        }, 300);
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          mobileMenuPanel.style.transform = 'translateX(0)';
+        }, 10);
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    }
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+    
+    if (mobileMenuBackdrop) {
+      mobileMenuBackdrop.addEventListener('click', toggleMobileMenu);
+    }
+    
+    const mobileMenuLinks = document.querySelectorAll('#mobileMenu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(toggleMobileMenu, 100);
+      });
+    });
+  </script>
 
 </body></html>
